@@ -1,0 +1,25 @@
+#include<iostream>
+#include<vector>
+using namespace std;
+int main() {
+	int n, maxa = 0, maxb = 0;
+	int max = -1;
+	vector <int> v;
+	cin >> n;
+	for (int i = 0; i < n; i++) {
+		int a;
+		cin >> a;
+		v.push_back(a);
+	}
+	for (int i = 0; i < (n - 1); i++) {
+		for (int j = 1; j < n; j++) {
+			if ((v[i] > v[j]) && ((v[i] + v[j]) % 120 == 0) && ((v[i] + v[j]) > max)) {
+				max = (v[i] + v[j]);
+				maxa = v[i];
+				maxb = v[j];
+			}
+		}
+	}
+	cout << maxa << " " << maxb;
+	return 0;
+}
